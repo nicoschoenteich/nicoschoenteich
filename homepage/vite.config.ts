@@ -7,6 +7,7 @@ import Markdown from 'unplugin-vue-markdown/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/nicoschoenteich/',
   plugins: [
     Markdown({}),
     vue({
