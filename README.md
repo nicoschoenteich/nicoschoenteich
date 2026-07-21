@@ -41,14 +41,14 @@ I am a <a href='https://developers.sap.com/developer-advocates.html'>Developer A
                 <img src='img/ui5.svg' width='100' />
             </a>
         </td>
-        <td align='center' width='150'>
-            <a href='https://developers.sap.com/tutorials/cp-explore-cloud-platform.html'>
-                <img src='img/sap.svg' width='100' />
-            </a>
-        </td>
         <td align='center'  width='150'>
             <a href='https://cap.cloud.sap/'>
                 <img src='img/cap.svg'  width='100' />
+            </a>
+        </td>
+        <td align='center' width='150'>
+            <a href='https://developers.sap.com/tutorials/cp-explore-cloud-platform.html'>
+                <img src='img/sap.svg' width='100' />
             </a>
         </td>
     </tr>
@@ -57,10 +57,10 @@ I am a <a href='https://developers.sap.com/developer-advocates.html'>Developer A
             <a href='https://ui5.sap.com/'>UI5</a>
         </td>
         <td align='center'>
-            <a href='https://developers.sap.com/tutorials/cp-explore-cloud-platform.html'>SAP Business Technology Platform</a>
+            <a href='https://cap.cloud.sap/'>SAP Cloud Application Programming Model</a>
         </td>
         <td align='center'>
-            <a href='https://cap.cloud.sap/'>SAP Cloud Application Programming Model</a>
+            <a href='https://developers.sap.com/tutorials/cp-explore-cloud-platform.html'>SAP Business Technology Platform</a>
         </td>
     </tr>
 </table>
