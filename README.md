@@ -16,7 +16,12 @@
     </tr>
     <tr>
         <td align='center'>
-            <img src='https://github-readme-stats.vercel.app/api?username=nicoschoenteich&show_icons=true&count_private=true&theme=dark' width='350'>
+            <img src='https://github-stats-extended.vercel.app/api?username=nicoschoenteich&theme=dark' width='350'>
+        </td>
+    </tr>
+    <tr>
+        <td align='center'>
+            <img src='https://github-stats-extended.vercel.app/api/top-langs/?username=nicoschoenteich&theme=dark&layout=donut' width='350'>
         </td>
     </tr>
 </table>
