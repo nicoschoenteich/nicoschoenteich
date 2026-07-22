@@ -1,3 +1,7 @@
+---
+title: "Quick tip: event/task scheduling in CAP Node.js (in alpha state)"
+---
+
 # Quick tip: event/task scheduling in CAP Node.js (in alpha state)
 
 _This is just a quick note about a discovery I made in [capire](https://cap.cloud.sap/docs/). SAP CAP (Node.js) will support task scheduling (including callbacks) for events (actions/functions are also events) in a future release. This is potentially very useful for building AI agents. The feature is currently still in alpha state, so it may change._

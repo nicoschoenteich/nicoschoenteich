@@ -1,3 +1,7 @@
+---
+title: "Semantic search in CAP (Node.js): vector embeddings and cosine similarity"
+---
+
 # Semantic search in CAP (Node.js): vector embeddings and cosine similarity
 
 _In this blog post I report on my recent experiments and findings on how to implement a semantic search in [CAP](https://cap.cloud.sap/docs/) Node.js. The goal for the search mechanism was to be able to find the item in an entity with the best semantic match based on a user query (prompt). This can be achieved using (local) vector embeddings and a cosine similarity search. I was pleasantly surprised how easy it is to handle vector embeddings locally without the need for an actual (vector) database (at least when not considering scaling)._

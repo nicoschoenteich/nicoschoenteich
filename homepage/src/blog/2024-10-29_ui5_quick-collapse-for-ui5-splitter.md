@@ -1,3 +1,7 @@
+---
+title: "Implementing a quick collapse for the UI5 Splitter control"
+---
+
 # Implementing a quick collapse for the UI5 Splitter control
 
 Recently a question came up in an internal channel about how to implement a quick collapse feature for the UI5 Splitter control. Actually, the question was about the ResponsiveSplitter, which already has a quick collapse feature when double clicking on the splitbar, but it would only collapse the first (left) content area. The question was how can we collapse the second (right) content area, or any other content area for that matter, if the user clicks on the splitbar? I built a small custom control that does that, and instead of keeping it internal, I thought I would share it with the community, so hopefully more people can benefit from it.

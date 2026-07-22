@@ -31,11 +31,11 @@ onMounted(() => {
         <span class="bold">{{ displayedText }}<span class="cursor" :class="{ visible: showCursor }"></span></span>
       </h1>
     </RouterLink>
-    <div class="icons">
-      <img src="/img/app/ui5.svg" />
-      <img src="/img/app/cap.svg" />
-      <img src="/img/app/anvil.svg" />
-    </div>
+    <nav class="serif-italic">
+      <RouterLink to="/">[Home]</RouterLink>
+      <RouterLink to="/blog">[Blog]</RouterLink>
+      <!-- <RouterLink to="/feed">[Feed]</RouterLink> -->
+    </nav>
   </div>
 </template>
 
@@ -65,13 +65,27 @@ h1 .serif-italic {
   margin-bottom: 0;
 }
 
-.icons {
+nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.icons img {
-  height: 4rem;
+nav a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover {
+  background: linear-gradient(to top, var(--sap-indigo2) 0.55rem, transparent 0.45rem);
+  align-self: flex-start;
+
+}
+
+nav a.router-link-active {
+	  font-weight: bold;
+
+
 }
 
 .cursor {

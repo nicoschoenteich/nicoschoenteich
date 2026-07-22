@@ -1,3 +1,7 @@
+---
+title: "Creating a personal development environment #1 - Why Neovim?"
+---
+
 # Creating a personal development environment #1 - Why Neovim?
 
 1. #1 - Why Neovim? (this blog post)

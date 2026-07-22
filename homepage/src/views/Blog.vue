@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import Button from '../components/Button.vue'
 import SectionTitle from '../components/SectionTitle.vue'
@@ -15,29 +14,20 @@ const props = withDefaults(defineProps<{ limit?: number; title?: string }>(), {
   title: 'Blog',
 })
 
-const postModules = import.meta.glob('../blog/*.md', {
-  eager: false,
-  query: '?raw',
-  import: 'default',
+const titleModules = import.meta.glob('../blog/*.md', {
+  eager: true,
+  import: 'title',
 })
 
-const posts = ref<PostMetadata[]>([])
+const allPosts: PostMetadata[] = Object.entries(titleModules)
+  .map(([path, title]) => {
+    const slug = path.replace('../blog/', '').replace('.md', '')
+    const date = slug.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? ''
+    return { slug, title: (title as string) || slug, date }
+  })
+  .sort((a, b) => b.date.localeCompare(a.date))
 
-onMounted(async () => {
-  const loaded: PostMetadata[] = []
-  for (const [path, loader] of Object.entries(postModules)) {
-    const filename = path.replace('../blog/', '').replace('.md', '')
-    const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})_(.+)$/)
-    const date = dateMatch?.[1] ?? ''
-    const slug = filename
-    const raw = await (loader as () => Promise<string>)()
-    const firstLine = raw.split('\n').find((l) => l.startsWith('# ')) ?? ''
-    const title = firstLine.replace(/^#\s+/, '') || slug
-    loaded.push({ slug, title, date })
-  }
-  loaded.sort((a, b) => b.date.localeCompare(a.date))
-  posts.value = loaded.slice(0, props.limit)
-})
+const posts = props.limit === Infinity ? allPosts : allPosts.slice(0, props.limit)
 </script>
 
 <template>

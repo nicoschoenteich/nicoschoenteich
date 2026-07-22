@@ -1,3 +1,7 @@
+---
+title: "Consuming your own (or external) Web Components in UI5 Applications"
+---
+
 # Consuming your own (or external) Web Components in UI5 Applications
 
 _This post summarizes my learnings on how to consume arbitrary [web components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) natively in UI5 applications. This is a powerful alternative to UI5 custom controls, since web components are framework-agnostic and can be reused in other contexts as well._

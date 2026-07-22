@@ -1,3 +1,7 @@
+---
+title: "On what makes a great frontend framework and why UI5 is one"
+---
+
 # On what makes a great frontend framework and why UI5 is one
 
 _This blog post is about the qualities of an effective frontend framework and highlights UI5 as the best choice for modern, scalable, and future-proof web applications in the enterprise context. The purpose of this post is not to help you decide which frontend framework to choose for your next project, be it [UI5](https://ui5.sap.com/), [React](https://react.dev/), [Vue.js](https://vuejs.org/), [Svelte](https://svelte.dev/), or any combination of these ([Astro](https://astro.build/)). It's purpose is more to highlight the strengths of UI5 based on my personal experience. Therefore, any examples, details or explanations I present are not (meant to be) exhaustive and are presented from my personal point of view._

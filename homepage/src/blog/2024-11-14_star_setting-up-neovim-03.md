@@ -1,3 +1,7 @@
+---
+title: "Creating a personal development environment #3 - Vim keybindings"
+---
+
 # Creating a personal development environment #3 - Vim keybindings
 
 1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
