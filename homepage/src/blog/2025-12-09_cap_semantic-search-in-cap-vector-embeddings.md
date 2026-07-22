@@ -1,30 +1,30 @@
 # Semantic search in CAP (Node.js): vector embeddings and cosine similarity
 
-*In this blog post I report on my recent experiments and findings on how to implement a semantic search in [CAP](https://cap.cloud.sap/docs/) Node.js. The goal for the search mechanism was to be able to find the item in an entity with the best semantic match based on a user query (prompt). This can be achieved using (local) vector embeddings and a cosine similarity search. I was pleasantly surprised how easy it is to handle vector embeddings locally without the need for an actual (vector) database (at least when not considering scaling).*
+_In this blog post I report on my recent experiments and findings on how to implement a semantic search in [CAP](https://cap.cloud.sap/docs/) Node.js. The goal for the search mechanism was to be able to find the item in an entity with the best semantic match based on a user query (prompt). This can be achieved using (local) vector embeddings and a cosine similarity search. I was pleasantly surprised how easy it is to handle vector embeddings locally without the need for an actual (vector) database (at least when not considering scaling)._
 
 While watching the Devtoberfest 2025 session on [Agentic Coding with CAP](https://www.youtube.com/watch?v=vvSrbsiIfmA) by [David Kunz](https://community.sap.com/t5/user/viewprofilepage/user-id/202584), I was intrigued to inspect the source code of the [CAP mcp-server](https://github.com/cap-js/mcp-server) that was talked about. Turns out, the `search_docs` tool of the server is implemented using vector embeddings and a cosine similarity search. This sparked my interest to explore this topic further and see how the concept can be applied to other scenarios as well.
 
 To start off, I will give you my understanding of vector embeddings (which might not be scientifically accurate, but is sufficient for applying the concept): Vector embeddings are numerical representations of data. Each vector has a lot of dimensions and a numerical value for each of the dimensions. The number of dimensions depends on the embedding model used. Data that has similar meaning, let's say "banana" and "apple", will also be closer to each other in the dimensional space than "banana" and "computer". It is important to note that you can only compare vectors that were created using the same embedding model, as a comparison requires the same number of dimensions with the same meaning. This concept is fundamental to how large-language models work. To create vector embeddings in a (CAP) Node.js application, this is all we need:
 
 ```javascript
-import { pipeline } from "@xenova/transformers"
-const embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2")
+import { pipeline } from '@xenova/transformers'
+const embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2')
 
 const data = [
-	{
-		text: "banana"
-	},
-	{
-		text: "apple"
-	}
+  {
+    text: 'banana',
+  },
+  {
+    text: 'apple',
+  },
 ]
 
 const createEmbeddings = async () => {
-	for (const item of data) {
-		const embedding = await embedder(item.text, { pooling: "mean", normalize: true })
-		item.embedding = JSON.stringify(Array.from(embedding.data))
-	}
-	return data
+  for (const item of data) {
+    const embedding = await embedder(item.text, { pooling: 'mean', normalize: true })
+    item.embedding = JSON.stringify(Array.from(embedding.data))
+  }
+  return data
 }
 
 console.log(await createEmbeddings()) // [{ text: 'banana', embedding: '[-0.057455405592918396,0.03617725893855095 ...
@@ -35,13 +35,16 @@ Going back to the original quest of implementing a semantic search, the next ste
 ```javascript
 // see code sample above for creating embeddings
 
-import cosineSimilarity from "cosine-similarity"
+import cosineSimilarity from 'cosine-similarity'
 
-const search = "computer"
-const searchEmbedding = await embedder(search, { pooling: "mean", normalize: true })
-const results = data.map(item => ({
-	text: item.text,
-	similarity: cosineSimilarity(Array.from(searchEmbedding.data), JSON.parse(item.embedding)).toFixed(4)
+const search = 'computer'
+const searchEmbedding = await embedder(search, { pooling: 'mean', normalize: true })
+const results = data.map((item) => ({
+  text: item.text,
+  similarity: cosineSimilarity(
+    Array.from(searchEmbedding.data),
+    JSON.parse(item.embedding),
+  ).toFixed(4),
 }))
 console.log(results) // [ { text: 'banana', similarity: '0.4076' }, { text: 'apple', similarity: '0.5369' } ]
 ```
@@ -51,33 +54,33 @@ The [cosine-similarity](https://www.npmjs.com/package/cosine-similarity) module 
 The next step is to integrate this search mechanism into a CAP application. I create a simple CAP service with a `Products` entity, that also exposed a `semanticSearch` function. In the handler for that function, we create the same logic as shown in the code sample above. The only difference is that we now fetch the existing items from the database (embeddings stored a string) and return the items sorted by their similarity to the search term. It is important to note that we create the embeddings not in the actual search handler, but during the initialization of the service - for obvious performance reasons.
 
 ```javascript
-import { pipeline } from "@xenova/transformers"
-import cosineSimilarity from "cosine-similarity"
+import { pipeline } from '@xenova/transformers'
+import cosineSimilarity from 'cosine-similarity'
 
 export default async function catalog() {
-	const products = this.entities["Products"]
-	const data = await SELECT.from(products)
-	const embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2")
-	for (const item of data) {
-		const embedding = await embedder(item.text, { pooling: "mean", normalize: true })
-		await UPDATE(products, item.ID).with({ embedding: embedding.data })
-	}
+  const products = this.entities['Products']
+  const data = await SELECT.from(products)
+  const embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2')
+  for (const item of data) {
+    const embedding = await embedder(item.text, { pooling: 'mean', normalize: true })
+    await UPDATE(products, item.ID).with({ embedding: embedding.data })
+  }
 
-	this.on("semanticSearch", async (req) => {
-		const { search } = req.data
-		const data = await SELECT.from(products)
-		let results
-		const searchEmbedding = await embedder(search, { pooling: "mean", normalize: true })
-		results = data.map(item => ({
-			...item,
-			similarity: cosineSimilarity(Array.from(searchEmbedding.data), JSON.parse(item.embedding))
-		}))
-		results.sort((a, b) => b.similarity - a.similarity)
-		for (const result of results) {
-			delete result.embedding
-		}
-		return results
-	})
+  this.on('semanticSearch', async (req) => {
+    const { search } = req.data
+    const data = await SELECT.from(products)
+    let results
+    const searchEmbedding = await embedder(search, { pooling: 'mean', normalize: true })
+    results = data.map((item) => ({
+      ...item,
+      similarity: cosineSimilarity(Array.from(searchEmbedding.data), JSON.parse(item.embedding)),
+    }))
+    results.sort((a, b) => b.similarity - a.similarity)
+    for (const result of results) {
+      delete result.embedding
+    }
+    return results
+  })
 }
 ```
 
@@ -87,19 +90,19 @@ We can now test this semantic search by calling `http://localhost:4004/odata/v4/
 
 ```json
 {
-    "@odata.context": "$metadata#Products",
-        "value": [
-            {
-                "ID": 1,
-                "text": "apple",
-                "similarity": 0.5369198543970098
-            },
-            {
-                "ID": 2,
-                "text": "banana",
-                "similarity": 0.40761179144643095
-            }
-        ]
+  "@odata.context": "$metadata#Products",
+  "value": [
+    {
+      "ID": 1,
+      "text": "apple",
+      "similarity": 0.5369198543970098
+    },
+    {
+      "ID": 2,
+      "text": "banana",
+      "similarity": 0.40761179144643095
+    }
+  ]
 }
 ```
 
@@ -107,19 +110,19 @@ Now let's the if customers would find the banane if they searched for `/semantic
 
 ```json
 {
-    "@odata.context": "$metadata#Products",
-        "value": [
-            {
-                "ID": 2,
-                "text": "banana",
-                "similarity": 0.40374334839388043
-            },
-            {
-                "ID": 1,
-                "text": "apple",
-                "similarity": 0.2445011304736103
-            }
-        ]
+  "@odata.context": "$metadata#Products",
+  "value": [
+    {
+      "ID": 2,
+      "text": "banana",
+      "similarity": 0.40374334839388043
+    },
+    {
+      "ID": 1,
+      "text": "apple",
+      "similarity": 0.2445011304736103
+    }
+  ]
 }
 ```
 

@@ -5,44 +5,40 @@ Recently a question came up in an internal channel about how to implement a quic
 Let's start with the custom control itself:
 
 ```javascript
-sap.ui.define([
-	"sap/ui/layout/Splitter"
-], function(SuperControl) {
-	"use strict";
+sap.ui.define(['sap/ui/layout/Splitter'], function (SuperControl) {
+  'use strict'
 
-	return SuperControl.extend("myui5app.control.CustomSplitter", {
-		metadata: {
-			properties: {
-				quickCollapseIndex: { type: "string", defaultValue: "" }
-			},
-			aggregations: {},
-		},
+  return SuperControl.extend('myui5app.control.CustomSplitter', {
+    metadata: {
+      properties: {
+        quickCollapseIndex: { type: 'string', defaultValue: '' },
+      },
+      aggregations: {},
+    },
 
-		renderer: {},
+    renderer: {},
 
-		onAfterRendering: function() {
-			if (sap.ui.layout.Splitter.prototype.onAfterRendering) {
-				sap.ui.layout.Splitter.prototype.onAfterRendering.apply(this, arguments) //run the super class's method first
-			}
+    onAfterRendering: function () {
+      if (sap.ui.layout.Splitter.prototype.onAfterRendering) {
+        sap.ui.layout.Splitter.prototype.onAfterRendering.apply(this, arguments) //run the super class's method first
+      }
 
-			const splitter = this.getDomRef()
-			splitter.addEventListener("dblclick", (e) => {
-				if (e.target.id === splitter.id) {
-					const allContentAreas = this.getContentAreas()
-					if (this.getQuickCollapseIndex()) {
-						const contentAreaToCollapse = allContentAreas[this.getQuickCollapseIndex()]
-						contentAreaToCollapse.getLayoutData().setSize("0px")
-					}
-				}
-			})
-
-		}
-
-	})
+      const splitter = this.getDomRef()
+      splitter.addEventListener('dblclick', (e) => {
+        if (e.target.id === splitter.id) {
+          const allContentAreas = this.getContentAreas()
+          if (this.getQuickCollapseIndex()) {
+            const contentAreaToCollapse = allContentAreas[this.getQuickCollapseIndex()]
+            contentAreaToCollapse.getLayoutData().setSize('0px')
+          }
+        }
+      })
+    },
+  })
 })
 ```
 
-This custom control extends the `sap.ui.layout.Splitter`, which the `sap.ui.layout.ResponsiveSplitter` (which the original question referred to) also extends. It attaches a new dblclick  event listener to it. The event listener method first checks that it's actually the splitbar that was actually being clicked on (not one of the content areas). It then gets its newly created `quickCollapseIndex` attribute (which we will have to define when using the custom control), finds the corresponding content area among all of them, and eventually sets its size to `0px` (via the layout data).
+This custom control extends the `sap.ui.layout.Splitter`, which the `sap.ui.layout.ResponsiveSplitter` (which the original question referred to) also extends. It attaches a new dblclick event listener to it. The event listener method first checks that it's actually the splitbar that was actually being clicked on (not one of the content areas). It then gets its newly created `quickCollapseIndex` attribute (which we will have to define when using the custom control), finds the corresponding content area among all of them, and eventually sets its size to `0px` (via the layout data).
 
 We can now use this custom control in an XML view:
 

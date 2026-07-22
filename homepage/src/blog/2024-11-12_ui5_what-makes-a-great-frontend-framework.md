@@ -1,8 +1,8 @@
 # On what makes a great frontend framework and why UI5 is one
 
-*This blog post is about the qualities of an effective frontend framework and highlights UI5 as the best choice for modern, scalable, and future-proof web applications in the enterprise context. The purpose of this post is not to help you decide which frontend framework to choose for your next project, be it [UI5](https://ui5.sap.com/), [React](https://react.dev/), [Vue.js](https://vuejs.org/), [Svelte](https://svelte.dev/), or any combination of these ([Astro](https://astro.build/)). It's purpose is more to highlight the strengths of UI5 based on my personal experience. Therefore, any examples, details or explanations I present are not (meant to be) exhaustive and are presented from my personal point of view.*
+_This blog post is about the qualities of an effective frontend framework and highlights UI5 as the best choice for modern, scalable, and future-proof web applications in the enterprise context. The purpose of this post is not to help you decide which frontend framework to choose for your next project, be it [UI5](https://ui5.sap.com/), [React](https://react.dev/), [Vue.js](https://vuejs.org/), [Svelte](https://svelte.dev/), or any combination of these ([Astro](https://astro.build/)). It's purpose is more to highlight the strengths of UI5 based on my personal experience. Therefore, any examples, details or explanations I present are not (meant to be) exhaustive and are presented from my personal point of view._
 
-*I originally presented the content of this blog post at the [Flexso Tech Day 2024](https://community.sap.com/t5/sap-community/flexso-tech-day-2024/ev-p/13897666).*
+_I originally presented the content of this blog post at the [Flexso Tech Day 2024](https://community.sap.com/t5/sap-community/flexso-tech-day-2024/ev-p/13897666)._
 
 ## Qualities of a great frontend framework
 
@@ -17,7 +17,7 @@ When we think about what makes a great frontend framework (or any programming fr
 - community
 - dev experience
 
-These are all very important and valid aspects. In fact, a lot of frameworks have already checked those boxes. A few shine more in certain areas than others, but there is wide range frameworks that are great in these regards.  However, there is one central aspect, that is by far the most important one (in my humble opinion):
+These are all very important and valid aspects. In fact, a lot of frameworks have already checked those boxes. A few shine more in certain areas than others, but there is wide range frameworks that are great in these regards. However, there is one central aspect, that is by far the most important one (in my humble opinion):
 
 **Getting things done.**
 
@@ -49,36 +49,35 @@ I will focus on this second area in this blog post and will now go into detail.
 Unlike many other frontend frameworks, UI5 makes it very easy to get started. Essentially you only need two files: an `index.html` and one JavaScript file. An application like this doesn't even require a web server to work, because it is that simple (we will cover the aspect "closeness to core technologies" later). Of course, this kind of application doesn't make use of all the UI5 goodies available, nor does it follow its best practices, but it works - and that shows UI5's great design. Let's take a look at this simple example:
 
 index.html
+
 ```html
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>UI5 Walkthrough</title>
-		<script
-			id="sap-ui-bootstrap"
-			src="https://ui5.sap.com/resources/sap-ui-core.js"
-			data-sap-ui-async="true"
-			data-sap-ui-on-init="module:ui5/walkthrough/index"
-			data-sap-ui-resource-roots='{ "ui5.walkthrough": "./" }'>
-		</script>
-	</head>
-	<body class="sapUiBody" id="content">
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>UI5 Walkthrough</title>
+    <script
+      id="sap-ui-bootstrap"
+      src="https://ui5.sap.com/resources/sap-ui-core.js"
+      data-sap-ui-async="true"
+      data-sap-ui-on-init="module:ui5/walkthrough/index"
+      data-sap-ui-resource-roots='{ "ui5.walkthrough": "./" }'
+    ></script>
+  </head>
+  <body class="sapUiBody" id="content"></body>
 </html>
 ```
 
 index.js
-```javascript
-sap.ui.define([
-	"sap/m/IllustratedMessage",
-], (IllustratedMessage) => {
-	"use strict"
 
-	new IllustratedMessage({
-		title: "Welcome to Flexso Tech Day 2024!",
-		illustrationType: "sapIllus-SuccessHighFive"
-	}).placeAt("content")
+```javascript
+sap.ui.define(['sap/m/IllustratedMessage'], (IllustratedMessage) => {
+  'use strict'
+
+  new IllustratedMessage({
+    title: 'Welcome to Flexso Tech Day 2024!',
+    illustrationType: 'sapIllus-SuccessHighFive',
+  }).placeAt('content')
 })
 ```
 
@@ -145,89 +144,83 @@ entity Sessions : cuid {
 }
 ```
 
-Now for the frontend, we want to build a list of sessions that renders into simple HTML elements. Not just because it's simple, but because it shows that UI5 (and the underlying core technologies) is a blank canvas. ***If you can use UI5 to write HTML, CSS, and JavaScript, you can use it to write anything.*** See it as your entry door to building frontend applications in the enterprise context. I know I am repeating myself, but with UI5 you have this flexibility ***on top*** of the (1) control libraries and (2) the framework.
+Now for the frontend, we want to build a list of sessions that renders into simple HTML elements. Not just because it's simple, but because it shows that UI5 (and the underlying core technologies) is a blank canvas. _**If you can use UI5 to write HTML, CSS, and JavaScript, you can use it to write anything.**_ See it as your entry door to building frontend applications in the enterprise context. I know I am repeating myself, but with UI5 you have this flexibility _**on top**_ of the (1) control libraries and (2) the framework.
 
 Let's start with the `BasicList.js`:
 
 ```javascript
-sap.ui.define([
-	"sap/ui/core/Control"
-], function(Control) {
-	"use strict"
+sap.ui.define(['sap/ui/core/Control'], function (Control) {
+  'use strict'
 
-	return Control.extend("myui5app.control.BasicList", {
-		metadata: {
-			properties: {
-				editable: { type: "boolean" }
-			},
-			aggregations: {
-				items: { type: "sap.ui.core.Control" },
-			},
-			defaultAggregation: "items"
-		},
+  return Control.extend('myui5app.control.BasicList', {
+    metadata: {
+      properties: {
+        editable: { type: 'boolean' },
+      },
+      aggregations: {
+        items: { type: 'sap.ui.core.Control' },
+      },
+      defaultAggregation: 'items',
+    },
 
-		renderer(oRm, oControl) {
-			oRm.write("<ul")
-			oRm.writeControlData(oControl) // adds UI5 specific attributes to the HTML element
-			oRm.write(">")
-			oControl.getItems().forEach(item => {
-				oRm.renderControl(item)
-			})
-			oRm.write("</ul>")
-		},
-
-	})
+    renderer(oRm, oControl) {
+      oRm.write('<ul')
+      oRm.writeControlData(oControl) // adds UI5 specific attributes to the HTML element
+      oRm.write('>')
+      oControl.getItems().forEach((item) => {
+        oRm.renderControl(item)
+      })
+      oRm.write('</ul>')
+    },
+  })
 })
 ```
 
-As already mentioned, this custom control extends the `sap.ui.core.Control` class. We define some metadata, like the control's properties and aggregations (a fancy word for "its children"). These properties and aggregations can be used when consuming the control, for example in an XML view. Probably the most interesting part in the code above is the `renderer()` method, where we essentially use the render manager (`oRm` - opinions about hungarian notation anyone? 😉) to write our HTML. We open an unordered list (`<ul>`), loop over all items (aggregations/children), call their respective renderer, and close the list. The great thing here is that we can combine UI5 internal methods (like `getItems()`) with (more or less) plain HTML - again, we have great flexibility ***on top*** of the framework.
+As already mentioned, this custom control extends the `sap.ui.core.Control` class. We define some metadata, like the control's properties and aggregations (a fancy word for "its children"). These properties and aggregations can be used when consuming the control, for example in an XML view. Probably the most interesting part in the code above is the `renderer()` method, where we essentially use the render manager (`oRm` - opinions about hungarian notation anyone? 😉) to write our HTML. We open an unordered list (`<ul>`), loop over all items (aggregations/children), call their respective renderer, and close the list. The great thing here is that we can combine UI5 internal methods (like `getItems()`) with (more or less) plain HTML - again, we have great flexibility _**on top**_ of the framework.
 
 Let's now continue with the `BasicListItem.js`:
 
 ```javascript
-sap.ui.define([
-	"sap/ui/core/Control"
-], function(Control) {
-	"use strict"
+sap.ui.define(['sap/ui/core/Control'], function (Control) {
+  'use strict'
 
-	return Control.extend("myui5app.control.BasicListItem", {
-		metadata: {
-			properties: {
-				title: { type: "string" },
-				detail1: { type: "string" },
-				detail2: { type: "string" }
-			}
-		},
+  return Control.extend('myui5app.control.BasicListItem', {
+    metadata: {
+      properties: {
+        title: { type: 'string' },
+        detail1: { type: 'string' },
+        detail2: { type: 'string' },
+      },
+    },
 
-		renderer(oRm, oControl) {
-			oRm.write("<li")
-			oRm.writeControlData(oControl)
-			oRm.write(">")
-			if (oControl.getParent().getEditable()) {
-				oRm.write("<input")
-				oRm.addStyle("width", "calc(100vw - 100px)")
-				oRm.writeStyles()
-				oRm.writeAttribute("value", oControl.getTitle())
-				oRm.write("'></input>")
-			} else {
-				oRm.write(oControl.getTitle())
-			}
-			oRm.write("<ul>")
-			oRm.write("<li>")
-			oRm.writeEscaped(oControl.getDetail1())
-			oRm.write("</li>")
-			oRm.write("<li>")
-			oRm.writeEscaped(oControl.getDetail2())
-			oRm.write("</li>")
-			oRm.write("</ul>")
-			oRm.write("</li>")
-		},
+    renderer(oRm, oControl) {
+      oRm.write('<li')
+      oRm.writeControlData(oControl)
+      oRm.write('>')
+      if (oControl.getParent().getEditable()) {
+        oRm.write('<input')
+        oRm.addStyle('width', 'calc(100vw - 100px)')
+        oRm.writeStyles()
+        oRm.writeAttribute('value', oControl.getTitle())
+        oRm.write("'></input>")
+      } else {
+        oRm.write(oControl.getTitle())
+      }
+      oRm.write('<ul>')
+      oRm.write('<li>')
+      oRm.writeEscaped(oControl.getDetail1())
+      oRm.write('</li>')
+      oRm.write('<li>')
+      oRm.writeEscaped(oControl.getDetail2())
+      oRm.write('</li>')
+      oRm.write('</ul>')
+      oRm.write('</li>')
+    },
 
-		onchange(e) {
-			this.setProperty("title", e.target.value)
-		}
-
-	})
+    onchange(e) {
+      this.setProperty('title', e.target.value)
+    },
+  })
 })
 ```
 
@@ -252,7 +245,7 @@ Let's now use our custom controls in the `MainView.view.xml`:
 </mvc:View>
 ```
 
-We make use of the data binding syntax to bind our default OData V4 model to our custom controls. This model was added to our application when we ran the `cap` subgenerator of the easy-ui5 project generator. We will get back to this in just a second. Notice how we import our custom controls by defining a new `cc` namespace pointing to the `control/` directory within our application. Also notice how we combine our custom controls with standard UI5 controls like the `Title` and `Button`. Again, flexibility ***on top*** of the framework.
+We make use of the data binding syntax to bind our default OData V4 model to our custom controls. This model was added to our application when we ran the `cap` subgenerator of the easy-ui5 project generator. We will get back to this in just a second. Notice how we import our custom controls by defining a new `cc` namespace pointing to the `control/` directory within our application. Also notice how we combine our custom controls with standard UI5 controls like the `Title` and `Button`. Again, flexibility _**on top**_ of the framework.
 
 This is what the application now looks like:
 
@@ -261,18 +254,16 @@ This is what the application now looks like:
 To further undermine the tight integration of our custom controls with the rest of our UI5 application, let's add some logic to the `MainView.controller.js` to make the custom list editable:
 
 ```javascript
-sap.ui.define(["sap/ui/core/mvc/Controller"],
-	function(Controller) {
-		"use strict"
+sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
+  'use strict'
 
-		return Controller.extend("myui5app.controller.MainView", {
-			edit: function() {
-				const basicList = this.byId("sessions")
-				basicList.setEditable(!basicList.getEditable())
-			}
-
-		})
-	})
+  return Controller.extend('myui5app.controller.MainView', {
+    edit: function () {
+      const basicList = this.byId('sessions')
+      basicList.setEditable(!basicList.getEditable())
+    },
+  })
+})
 ```
 
 The `edit` method was previously added to the `press` event of the `Button` in the `MainView.view.xml`. It simply toggles the `editable` property of the `BasicList` control. This is a very simple example, but it shows how easy it is to interact with your custom controls from somewhere else in your application.

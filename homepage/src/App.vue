@@ -5,5 +5,100 @@ import Header from './components/Header.vue'
 
 <template>
   <Header />
-  <RouterView />
+  <div class="letter-box-outer">
+    <div class="letter-box-inner">
+      <RouterView />
+    </div>
+  </div>
 </template>
+
+<style>
+:root {
+  --sap-grey1: #f5f6f7;
+  --sap-grey2: #eaecee;
+  --sap-grey4: #a9b4be;
+  --sap-grey6: #5b738b;
+  --sap-grey7: #475e75;
+  --sap-grey10: #1a2733;
+  --sap-grey11: #12171c;
+  --sap-grey-anvil: var(--sap-grey6);
+
+  --sap-blue1: #ebf8ff;
+  --sap-blue2: #d1efff;
+  --sap-blue3: #a6e0ff;
+  --sap-blue4: #89d1ff;
+  --sap-blue6: #1b90ff;
+  --sap-blue7: #0070f2;
+  --sap-blue8: #0057d2;
+  --sap-blue10: #002a86;
+  --sap-blue11: #00144a;
+  --sap-blue-anvil: var(--sap-blue10);
+
+  --sap-indigo1: #f1ecff;
+  --sap-indigo2: #e2d8ff;
+  --sap-indigo4: #b894ff;
+  --sap-indigo6: #7858ff;
+  --sap-indigo7: #5d36ff;
+  --sap-indigo10: #1c0c6e;
+  --sap-indigo11: #0e0637;
+  --sap-indigo-anvil: var(--sap-indigo6);
+
+  --sap-teal1: #dafdf5;
+  --sap-teal2: #c2fcee;
+  --sap-teal4: #2ce0bf;
+  --sap-teal6: #049f9a;
+  --sap-teal7: #07838f;
+  --sap-teal10: #02414c;
+  --sap-teal11: #012931;
+  --sap-teal-anvil: var(--sap-teal6);
+
+  --black-opacity-10: rgba(0, 0, 0, 0.1);
+  --black-opacity-30: rgba(0, 0, 0, 0.3);
+  --black-opacity-50: rgba(0, 0, 0, 0.5);
+  --black-opacity-70: rgba(0, 0, 0, 0.7);
+  --black-opacity-100: rgba(0, 0, 0, 1);
+
+  --white-opacity-10: rgba(255, 255, 255, 0.1);
+  --white-opacity-30: rgba(255, 255, 255, 0.3);
+  --white-opacity-50: rgba(255, 255, 255, 0.5);
+  --white-opacity-70: rgba(255, 255, 255, 0.7);
+  --white-opacity-100: rgba(255, 255, 255, 1);
+
+  --sap-joule1: var(--sap-indigo7);
+  --sap-joule2: #a100c2;
+}
+
+body {
+  background-color: var(--sap-blue1);
+  color: var(--sap-blue10);
+
+  margin: 1rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.letter-box-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letter-box-inner {
+  max-width: 1200px;
+}
+
+.serif-italic {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.highlight {
+  background: linear-gradient(to top, var(--sap-indigo2) 0.55rem, transparent 0.45rem);
+  align-self: flex-start;
+}
+</style>

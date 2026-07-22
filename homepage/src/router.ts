@@ -22,10 +22,6 @@ const router = createRouter({
       path: '/blog/:slug',
       component: () => import('@/views/Post.vue'),
     },
-    {
-      path: '/impressum',
-      component: () => import('@/views/Impressum.vue'),
-    },
   ],
 })
 

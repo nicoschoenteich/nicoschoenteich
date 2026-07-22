@@ -1,11 +1,11 @@
 # Creating a personal development environment #4 - A custom theme for SAP TechEd 2025
 
 1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
-1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474) 
+1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474)
 1. [#3 - Vim keybindings](https://community.sap.com/t5/technology-blog-posts-by-sap/creating-a-personal-development-environment-3-vim-keybindings/ba-p/13938067)
 1. #4 - A custom theme for SAP TechEd 2025 (this blog post)
 
-*Building on top of the previous three blog posts, this blog post will focus on creating a custom theme for Neovim, inspired by the [SAP TechEd 2025](https://www.sap.com/events/teched.html) branding.*
+_Building on top of the previous three blog posts, this blog post will focus on creating a custom theme for Neovim, inspired by the [SAP TechEd 2025](https://www.sap.com/events/teched.html) branding._
 
 ![saptechedlightfox](/img/setting-up-neovim/saptechedlightfox.png)
 
@@ -23,7 +23,7 @@ return {
                     carbonfox = {
 					    bg0  = "#89D1FF", -- Dark bg (status line and float)
 				    	bg1  = "#EBF8FF", -- Default bg
-				    	sel0 = "#FF8AF0", -- Popup bg, visual selection bg                    
+				    	sel0 = "#FF8AF0", -- Popup bg, visual selection bg
                         sel1 = "#FFCC00", -- Popup sel bg, search bg}
                     }
                 },
@@ -92,7 +92,7 @@ white
 
 orange
     color16
-    bell_border_color 
+    bell_border_color
 
 pink
     color17

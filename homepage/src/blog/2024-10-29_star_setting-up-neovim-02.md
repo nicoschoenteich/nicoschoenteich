@@ -61,7 +61,7 @@ I then required this file in the `~/.config/nvim/init.lua` to make sure Neovim l
 require("misc")
 ```
 
-The configured options are all pretty self-explanatory, and for those that aren't, I added some comments. In general, these options come down to personal preference, and there is no right or wrong (unless you are using a tab width of 2 🙃). 
+The configured options are all pretty self-explanatory, and for those that aren't, I added some comments. In general, these options come down to personal preference, and there is no right or wrong (unless you are using a tab width of 2 🙃).
 
 The great thing about this file is that it is still a lua script, not just a list of on/off toggles. We can use it to set up pretty complex things like automatically running commands when files with a certain extension are opened. For example, I only want to enable spell check and line wrap for markdown files, and since there is a (Neo)vim command for every option (or vice versa?), I can just run that. But we can also run native shell commands, for example to open images in the native image viewer of the operating system ("Preview" on MacOS).
 

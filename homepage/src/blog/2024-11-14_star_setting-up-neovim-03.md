@@ -1,7 +1,7 @@
 # Creating a personal development environment #3 - Vim keybindings
 
 1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
-1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474) 
+1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474)
 1. #3 - Vim keybindings (this blog post)
 
 *Building on top of the previous two blog posts, this blog post will focus learning Vim keybindings, which is very central for using any Vim-based editor, let alone be productive with it.+
@@ -29,7 +29,7 @@ What I did so far:
 
 Now while doing all of this, we implicitly already talked about keybindings. After all, Neovim is a keyboard-first editor. You shouldn't really be using the mouse at all (although you can if you want to), which is why you have to use keybindings. However, we only really talked about custom keybindings - the ones that relate to a plugin and where you define the shortcut and the associated operation. But the most important keybindings are the ones that are built into Neovim itself, and since Neovim is a fork of Vim (did I already mention that? 🤔), we can simply refer to them as Vim keybindings (also when googling 😉). These are the ones you will use the most for moving around, switching modes, editing text, and so on. Vim keybindings can seem quite odd at first (from a modern perspective), but they are incredibly powerful and well though-out.
 
-*Regarding all my custom keybindings I mentioned that I like to group my keybindings by the category they fall into (in my understanding) and prefix them with the corresponding letter. For example, all keybinding related to the file system start with the letter `f`, like `fe` for opening the file explorer. Another example are all bindings related to the language server start with the letter `l`, like `ld` for "go to definition". This system helps me remembering them all. It somewhat different to what other people mostly do, which is prefixing all keybindings with a defined leader key, for example space.*
+_Regarding all my custom keybindings I mentioned that I like to group my keybindings by the category they fall into (in my understanding) and prefix them with the corresponding letter. For example, all keybinding related to the file system start with the letter `f`, like `fe` for opening the file explorer. Another example are all bindings related to the language server start with the letter `l`, like `ld` for "go to definition". This system helps me remembering them all. It somewhat different to what other people mostly do, which is prefixing all keybindings with a defined leader key, for example space._
 
 ## Vim keybindings
 
