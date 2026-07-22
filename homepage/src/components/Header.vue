@@ -1,5 +1,26 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
+
+const fullText = 'Schoenteich'
+const displayedText = ref('')
+const showCursor = ref(true)
+
+onMounted(() => {
+  let i = 0
+  const typeNext = () => {
+    displayedText.value += fullText[i]
+    i++
+    if (i === fullText.length) {
+      setInterval(() => {
+        showCursor.value = !showCursor.value
+      }, 500)
+    } else {
+      setTimeout(typeNext, Math.random() * 400 + 50)
+    }
+  }
+  setTimeout(typeNext, Math.random() * 400 + 50)
+})
 </script>
 
 <template>
@@ -7,7 +28,7 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/">
       <h1>
         <span class="serif-italic">Nico </span>
-        <span class="bold">Schoenteich</span>
+        <span class="bold">{{ displayedText }}<span class="cursor" :class="{ visible: showCursor }"></span></span>
       </h1>
     </RouterLink>
     <div class="icons">
@@ -51,5 +72,21 @@ h1 .serif-italic {
 
 .icons img {
   height: 4rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.5rem;
+  height: 1em;
+  background-color: currentColor;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+	margin-top: -0.5rem;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.cursor.visible {
+  opacity: 1;
 }
 </style>
