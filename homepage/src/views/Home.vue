@@ -26,5 +26,4 @@ import SplitLayout from '../components/SplitLayout.vue'
     </template>
   </SplitLayout>
 
-  <Contact />
 </template>

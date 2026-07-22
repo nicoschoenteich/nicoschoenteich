@@ -17,6 +17,7 @@ import SectionTitle from '../components/SectionTitle.vue'
       <img src="/img/app/email.svg" alt="Email" />
     </a>
   </div>
+	<span class="serif-italic highlight email">nicolai.schoenteich@sap.com</span>
 </template>
 
 <style scoped>
@@ -26,6 +27,7 @@ import SectionTitle from '../components/SectionTitle.vue'
   gap: 1.5rem;
   align-items: center;
   margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 .contact-icons img {

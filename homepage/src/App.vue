@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import Contact from './components/Contact.vue'
 import Header from './components/Header.vue'
 </script>
 
@@ -8,6 +9,7 @@ import Header from './components/Header.vue'
   <div class="letter-box-outer">
     <div class="letter-box-inner">
       <RouterView />
+			<Contact />
     </div>
   </div>
 </template>

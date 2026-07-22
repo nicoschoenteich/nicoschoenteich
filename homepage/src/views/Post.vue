@@ -46,6 +46,7 @@ const PostComponent = computed(() => defineAsyncComponent(() => import(`../blog/
 article {
   position: relative;
   max-width: 720px;
+	margin-bottom: 4rem;
 }
 .topic-image {
   height: 10rem;
