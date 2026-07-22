@@ -73,4 +73,13 @@ li {
 
   border-top: 1px solid var(--sap-blue10);
 }
+
+a {
+  color: var(--sap-blue10);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 </style>
