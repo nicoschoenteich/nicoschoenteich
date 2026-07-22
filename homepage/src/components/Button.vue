@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ text: string; img?: string }>()
+defineProps<{ text?: string; img?: string }>()
 </script>
 
 <template>
