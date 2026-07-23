@@ -1,5 +1,7 @@
 ---
 title: "Creating a personal development environment #3 - Vim keybindings"
+topic: "star"
+date: "2024-11-14"
 ---
 
 # Creating a personal development environment #3 - Vim keybindings

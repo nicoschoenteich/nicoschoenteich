@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import Button from '../components/Button.vue'
-import { defineAsyncComponent, computed } from 'vue'
+import { defineAsyncComponent, computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
 const slug = computed(() => route.params.slug as string)
-const topic = computed(() => slug.value.split('_')[1] ?? '')
-const date = computed(() => slug.value.split('_')[0] ?? '')
+const topic = ref('')
+const date = ref('')
+
+watch(slug, async (s) => {
+  const mod = await import(`../blog/${s}.md`)
+  topic.value = mod.topic ?? ''
+  date.value = mod.date ?? ''
+}, { immediate: true })
 
 const PostComponent = computed(() => defineAsyncComponent(() => import(`../blog/${slug.value}.md`)))
 </script>

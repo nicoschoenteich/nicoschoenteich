@@ -2,10 +2,12 @@
 import { RouterLink } from 'vue-router'
 import Button from '../components/Button.vue'
 import SectionTitle from '../components/SectionTitle.vue'
+import postData from '../blog/posts.json'
 
 interface PostMetadata {
   slug: string
   title: string
+  topic: string
   date: string
 }
 
@@ -14,20 +16,9 @@ const props = withDefaults(defineProps<{ limit?: number; title?: string }>(), {
   title: 'Blog',
 })
 
-const titleModules = import.meta.glob('../blog/*.md', {
-  eager: true,
-  import: 'title',
-})
+const sortedPosts: PostMetadata[] = [...postData].sort((a, b) => b.date.localeCompare(a.date))
+const posts = props.limit === Infinity ? sortedPosts : sortedPosts.slice(0, props.limit)
 
-const allPosts: PostMetadata[] = Object.entries(titleModules)
-  .map(([path, title]) => {
-    const slug = path.replace('../blog/', '').replace('.md', '')
-    const date = slug.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? ''
-    return { slug, title: (title as string) || slug, date }
-  })
-  .sort((a, b) => b.date.localeCompare(a.date))
-
-const posts = props.limit === Infinity ? allPosts : allPosts.slice(0, props.limit)
 </script>
 
 <template>
@@ -36,7 +27,9 @@ const posts = props.limit === Infinity ? allPosts : allPosts.slice(0, props.limi
     <ul>
       <li v-for="post in posts" :key="post.slug">
         <RouterLink :to="`/blog/${post.slug}`">{{ post.title }}</RouterLink>
-        <span v-if="post.date" class="serif-italic highlight">{{ post.date }}</span>
+        <div class="meta">
+          <span v-if="post.date" class="serif-italic highlight">{{ post.date }}</span>
+        </div>
       </li>
     </ul>
 
@@ -71,5 +64,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.topic {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sap-grey6);
 }
 </style>

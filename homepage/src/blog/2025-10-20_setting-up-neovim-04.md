@@ -1,5 +1,7 @@
 ---
 title: "Creating a personal development environment #4 - A custom theme for SAP TechEd 2025"
+topic: "star"
+date: "2025-10-20"
 ---
 
 # Creating a personal development environment #4 - A custom theme for SAP TechEd 2025

@@ -1,5 +1,7 @@
 ---
 title: "Consuming your own (or external) Web Components in UI5 Applications"
+topic: "ui5"
+date: "2025-12-02"
 ---
 
 # Consuming your own (or external) Web Components in UI5 Applications

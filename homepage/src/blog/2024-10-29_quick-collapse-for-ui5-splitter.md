@@ -1,5 +1,7 @@
 ---
 title: "Implementing a quick collapse for the UI5 Splitter control"
+topic: "ui5"
+date: "2024-10-29"
 ---
 
 # Implementing a quick collapse for the UI5 Splitter control

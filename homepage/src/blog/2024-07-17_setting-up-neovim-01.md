@@ -1,5 +1,7 @@
 ---
 title: "Creating a personal development environment #1 - Why Neovim?"
+topic: "star"
+date: "2024-07-17"
 ---
 
 # Creating a personal development environment #1 - Why Neovim?

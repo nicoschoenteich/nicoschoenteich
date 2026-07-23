@@ -1,5 +1,7 @@
 ---
 title: "Creating a personal development environment #2 - Miscellaneous, status line, and color scheme"
+topic: "star"
+date: "2024-10-29"
 ---
 
 # Creating a personal development environment #2 - Miscellaneous, status line, and color scheme

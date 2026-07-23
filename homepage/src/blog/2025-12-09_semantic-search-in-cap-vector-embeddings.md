@@ -1,5 +1,7 @@
 ---
 title: "Semantic search in CAP (Node.js): vector embeddings and cosine similarity"
+topic: "cap"
+date: "2025-12-09"
 ---
 
 # Semantic search in CAP (Node.js): vector embeddings and cosine similarity

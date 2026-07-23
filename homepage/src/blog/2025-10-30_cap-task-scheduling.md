@@ -1,5 +1,7 @@
 ---
 title: "Quick tip: event/task scheduling in CAP Node.js (in alpha state)"
+topic: "cap"
+date: "2025-10-30"
 ---
 
 # Quick tip: event/task scheduling in CAP Node.js (in alpha state)

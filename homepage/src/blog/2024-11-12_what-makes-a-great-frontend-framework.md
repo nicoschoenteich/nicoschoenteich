@@ -1,5 +1,7 @@
 ---
 title: "On what makes a great frontend framework and why UI5 is one"
+topic: "ui5"
+date: "2024-11-12"
 ---
 
 # On what makes a great frontend framework and why UI5 is one
