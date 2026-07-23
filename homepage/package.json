@@ -1,6 +1,6 @@
 {
   "name": "homepage5",
-  "description": "A simple homepage with DIY static site generation.",
+  "description": "A simple homepage/blog with DIY static site generation.",
   "version": "0.0.1",
   "author": {
     "name": "Nico Schoenteich",
@@ -8,11 +8,13 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "serve app",
-    "build": "node scripts/build.js",
-    "preview": "serve dist"
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "serve": "^14.2.6"
+    "nodemon": "^3.1.14",
+    "serve": "^14.2.6",
+    "showdown": "^2.1.0",
+    "yaml": "^2.9.0"
   }
 }
