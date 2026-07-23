@@ -1,15 +1,14 @@
 ---
-title: "Creating a personal development environment #4 - A custom theme for SAP TechEd 2025"
 topic: "star"
-date: "2025-10-20"
+description: Building on top of the previous three blog posts, this blog post will focus on creating a custom theme for Neovim, inspired by the SAP TechEd 2025 branding."
 ---
 
 # Creating a personal development environment #4 - A custom theme for SAP TechEd 2025
 
-1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
-1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474)
-1. [#3 - Vim keybindings](https://community.sap.com/t5/technology-blog-posts-by-sap/creating-a-personal-development-environment-3-vim-keybindings/ba-p/13938067)
-1. #4 - A custom theme for SAP TechEd 2025 (this blog post)
+1. [Why Neovim?](/blog/2024-07-17-setting-up-neovim-01)
+1. [Miscellaneous, status line, and color scheme](/blog/2024-10-29-setting-up-neovim-02)
+1. [Vim keybindings](/blog/2024-11-14-setting-up-neovim-03)
+1. A custom theme for SAP TechEd 2025 (this blog post)
 
 _Building on top of the previous three blog posts, this blog post will focus on creating a custom theme for Neovim, inspired by the [SAP TechEd 2025](https://www.sap.com/events/teched.html) branding._
 

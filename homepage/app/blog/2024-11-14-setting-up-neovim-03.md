@@ -1,16 +1,16 @@
 ---
-title: "Creating a personal development environment #3 - Vim keybindings"
 topic: "star"
-date: "2024-11-14"
+description: "Building on top of the previous two blog posts, this blog post will focus learning Vim keybindings, which is very central for using any Vim-based editor, let alone be productive with it."
 ---
 
 # Creating a personal development environment #3 - Vim keybindings
 
-1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
-1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474)
-1. #3 - Vim keybindings (this blog post)
+1. [Why Neovim?](/blog/2024-07-17-setting-up-neovim-01)
+1. [Miscellaneous, status line, and color scheme](/blog/2024-10-29-setting-up-neovim-02)
+1. Vim keybindings (this blog post)
+1. [A custom theme for SAP TechEd 2025](/blog/2025-10-20-setting-up-neovim-04)
 
-*Building on top of the previous two blog posts, this blog post will focus learning Vim keybindings, which is very central for using any Vim-based editor, let alone be productive with it.+
+*Building on top of the previous two blog posts, this blog post will focus learning Vim keybindings, which is very central for using any Vim-based editor, let alone be productive with it.*
 
 Before we get started with the keybindings though, let's do a quick recap of what my Neovim configuration, located at `~/.config/nvim/`, looked like a this point:
 

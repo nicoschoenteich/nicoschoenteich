@@ -1,14 +1,14 @@
 ---
-title: "Creating a personal development environment #1 - Why Neovim?"
 topic: "star"
-date: "2024-07-17"
+description: "In this blog post series I want to share my journey on how I created my personal development environment using Neovim."
 ---
 
 # Creating a personal development environment #1 - Why Neovim?
 
-1. #1 - Why Neovim? (this blog post)
-1. [#2 - Miscellaneous, status line, and color scheme](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-2-miscellaneous-status-line-and/ba-p/13922474)
-1. [#3 - Vim keybindings](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-3-vim-keybindings/ba-p/13938067)
+1. Why Neovim? (this blog post)
+1. [Miscellaneous, status line, and color scheme](/blog/2024-10-29-setting-up-neovim-02)
+1. [Vim keybindings](/blog/2024-11-14-setting-up-neovim-03)
+1. [A custom theme for SAP TechEd 2025](/blog/2025-10-20-setting-up-neovim-04)
 
 In this blog post series I want to share my journey on how I created my personal development environment for developing cloud native SAP applications. The focus here lies in the term "journey", as I am nowhere near a finished state and still learning a lot along the way. This is not a tutorial about [Neovim](https://neovim.io/) ([others can do that better](https://www.youtube.com/@typecraft_dev/playlists)) - this is more of a documentation of my journey with a bit of focus on SAP specific things.
 

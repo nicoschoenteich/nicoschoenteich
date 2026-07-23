@@ -1,7 +1,6 @@
 ---
-title: "Consuming your own (or external) Web Components in UI5 Applications"
 topic: "ui5"
-date: "2025-12-02"
+description: "This post summarizes my learnings on how to consume arbitrary web components natively in UI5 applications."
 ---
 
 # Consuming your own (or external) Web Components in UI5 Applications

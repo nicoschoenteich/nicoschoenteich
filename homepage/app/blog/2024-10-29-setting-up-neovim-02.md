@@ -1,14 +1,14 @@
 ---
-title: "Creating a personal development environment #2 - Miscellaneous, status line, and color scheme"
 topic: "star"
-date: "2024-10-29"
+description: "Building on top of the previous blog post, I will continue documenting my journey to a \"personal development environment\" using Neovim."
 ---
 
 # Creating a personal development environment #2 - Miscellaneous, status line, and color scheme
 
-1. [#1 - Why Neovim?](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-1-why-neovim/ba-p/13733533)
-1. #2 - Miscellaneous, status line, and color scheme (this blog post)
-1. [#3 - Vim keybindings](https://community.sap.com/t5/technology-blogs-by-sap/creating-a-personal-development-environment-3-vim-keybindings/ba-p/13938067)
+1. [Why Neovim?](/blog/2024-07-17-setting-up-neovim-01)
+1. Miscellaneous, status line, and color scheme (this blog post)
+1. [Vim keybindings](/blog/2024-11-14-setting-up-neovim-03)
+1. [A custom theme for SAP TechEd 2025](/blog/2025-10-20-setting-up-neovim-04)
 
 Building on top of the previous blog post, I will continue documenting my journey to a "personal development environment" using Neovim. This blog post will cover some miscellaneous configuration, the status line, and a color scheme - the basics to make Neovim look less "raw".
 

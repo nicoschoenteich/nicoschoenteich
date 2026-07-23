@@ -1,7 +1,6 @@
 ---
-title: "On what makes a great frontend framework and why UI5 is one"
 topic: "ui5"
-date: "2024-11-12"
+description: "This blog post is about the qualities of an effective frontend framework and highlights UI5 as the best choice for modern, scalable, and future-proof web applications in the enterprise context"
 ---
 
 # On what makes a great frontend framework and why UI5 is one

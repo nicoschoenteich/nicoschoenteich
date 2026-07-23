@@ -80,7 +80,7 @@ export default class StaticSiteGenerator {
 					<link>https://nicoschoenteich.de/blog/${post.slug}</link>
 					<guid>https://nicoschoenteich.de/blog/${post.slug}</guid>
 					<pubDate>${new Date(post.date).toUTCString()}</pubDate>
-					<description>${post.description ?? post.title}</description>
+					<description>${post.description}</description>
 				</item>
 			`).join("")
 
@@ -106,12 +106,16 @@ export default class StaticSiteGenerator {
 		}
 		fs.rmSync("./dist/routing", { recursive: true, force: true })
 	}
+	
 
 	extractInfoFromMarkdownFile(file) {
 		const content = fs.readFileSync("./dist/blog/" + file, "utf8")
+
 		const splitContent = content.split("---")
 		const frontmatter = splitContent[1]
 		const metadata = yaml.parse(frontmatter)
+		metadata.title = splitContent[2].split("# ")[1].split("\n")[0]
+		metadata.date = file.slice(0, 10)
 		metadata.slug = file.slice(0, -3)
 		return { metadata, markdown: splitContent[2] }
 	}
