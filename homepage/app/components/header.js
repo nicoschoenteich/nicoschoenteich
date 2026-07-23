@@ -11,6 +11,7 @@ class NicoschoenteichHeader extends HTMLElement {
 				<nav class="serif-italic">
 					<a href="/">[Home]</a>
 					<a href="/blog">[Blog]</a>
+					<a href="/blog/feed.xml">[Feed]</a>
 				</nav>
 			</div>
 

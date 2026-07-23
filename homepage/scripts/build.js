@@ -24,7 +24,9 @@ for (const route of routes) {
 fs.rmSync(DIST_DIR + "/routing", { recursive: true, force: true })
 
 const files = fs.readdirSync(DIST_BLOG_DIR).filter(f => f.endsWith(".md"))
-const posts = files.map(file => {
+const posts = files
+	.sort((a, b) => new Date(b.date) - new Date(a.date))
+	.map(file => {
 	const slug = file.slice(0, -3)
 	const content = fs.readFileSync(DIST_BLOG_DIR + "/" + file, "utf8")
 	const splitContent = content.split("---")
@@ -66,3 +68,28 @@ const posts = files.map(file => {
 	return metadata
 })
 fs.writeFileSync(DIST_BLOG_DIR + "/posts.json", JSON.stringify(posts))
+
+const rssItems = posts
+		.map(post => `
+	<item>
+		<title>${post.title}</title>
+		<link>https://nicoschoenteich.de/blog/${post.slug}</link>
+		<guid>https://nicoschoenteich.de/blog/${post.slug}</guid>
+		<pubDate>${new Date(post.date).toUTCString()}</pubDate>
+		<description>${post.description ?? post.title}</description>
+	</item>`).join("")
+
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Nico Schoenteich - Blog</title>
+		<link>https://nicoschoenteich.de</link>
+		<description>I am a Developer Advocate at SAP, where I help developers achieve their goals with SAP and non-SAP technology.</description>
+		<language>en-US</language>
+		<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+		<atom:link href="https://nicoschoenteich.de/blog/feed.xml" rel="self" type="application/rss+xml" />
+		${rssItems}
+	</channel>
+</rss>`
+
+fs.writeFileSync(DIST_BLOG_DIR + "/feed.xml", rss)
