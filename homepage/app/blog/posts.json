@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "2025-12-09_semantic-search-in-cap-vector-embeddings",
+    "title": "Semantic search in CAP (Node.js): vector embeddings and cosine similarity",
+    "topic": "cap",
+    "date": "2025-12-09"
+  },
+  {
+    "slug": "2025-12-02_ui5-external-web-components",
+    "title": "Consuming your own (or external) Web Components in UI5 Applications",
+    "topic": "ui5",
+    "date": "2025-12-02"
+  },
+  {
+    "slug": "2025-10-30_cap-task-scheduling",
+    "title": "Quick tip: event/task scheduling in CAP Node.js (in alpha state)",
+    "topic": "cap",
+    "date": "2025-10-30"
+  },
+  {
+    "slug": "2025-10-20_setting-up-neovim-04",
+    "title": "Creating a personal development environment #4 - A custom theme for SAP TechEd 2025",
+    "topic": "star",
+    "date": "2025-10-20"
+  },
+  {
+    "slug": "2024-11-14_setting-up-neovim-03",
+    "title": "Creating a personal development environment #3 - Vim keybindings",
+    "topic": "star",
+    "date": "2024-11-14"
+  },
+  {
+    "slug": "2024-11-12_what-makes-a-great-frontend-framework",
+    "title": "On what makes a great frontend framework and why UI5 is one",
+    "topic": "ui5",
+    "date": "2024-11-12"
+  },
+  {
+    "slug": "2024-10-29_quick-collapse-for-ui5-splitter",
+    "title": "Implementing a quick collapse for the UI5 Splitter control",
+    "topic": "ui5",
+    "date": "2024-10-29"
+  },
+  {
+    "slug": "2024-10-29_setting-up-neovim-02",
+    "title": "Creating a personal development environment #2 - Miscellaneous, status line, and color scheme",
+    "topic": "star",
+    "date": "2024-10-29"
+  },
+  {
+    "slug": "2024-07-17_setting-up-neovim-01",
+    "title": "Creating a personal development environment #1 - Why Neovim?",
+    "topic": "star",
+    "date": "2024-07-17"
+  }
+]
