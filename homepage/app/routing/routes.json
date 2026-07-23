@@ -1,1 +1,10 @@
-["/", "/blog"]
+[
+	{
+		"path": "/",
+		"title": "Nico Schoenteich"
+	},
+	{
+		"path": "/blog",
+		"title": "Nico Schoenteich - Blog"
+	}
+]

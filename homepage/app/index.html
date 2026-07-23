@@ -1,1 +1,25 @@
-Home
+<script src="/components/split-layout.js"></script>
+<script src="/components/blog-list.js"></script>
+<script src="/components/section-title.js"></script>
+<script src="/components/button.js"></script>
+
+<nicoschoenteich-split-layout>
+	<div slot="right">
+		<p style="margin: 0;">
+    	I am a Developer Advocate at SAP, where I help developers achieve their goals with SAP and non-SAP technology. I spend my days giving trainings, writing tutorials and sample code, producing videos, and speaking at conferences.
+  	</p>
+  	<br />
+  	<span class="serif-italic highlight">Opinions are my own, not SAP's.</span>
+	</div>
+</nicoschoenteich-split-layout>
+
+<nicoschoenteich-split-layout>
+	<div slot="left">
+		<nicoschoenteich-section-title title="Most recent blog posts"></nicoschoenteich-section-title>
+		<nicoschoenteich-blog-list limit="5"></nicoschoenteich-blog-list>
+		<a style="display: inline-block; margin-top: 1rem;" href="/blog"><nicoschoenteich-button text="Go to Blog"></nicoschoenteich-button></a>
+	</div>
+	<div slot="right">
+  	<img style="width: 100%;" src="/img/nico.png" />
+	</div>
+</nicoschoenteich-split-layout>
