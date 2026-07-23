@@ -2,7 +2,7 @@ class NicoschoenteichBlogList extends HTMLElement {
 	async connectedCallback() {
 		const limit = this.hasAttribute('limit') ? parseInt(this.getAttribute('limit')) : Infinity
 
-		const response = await fetch('/blog/posts.json')
+		const response = await fetch('/blog/feed.json')
 		const posts = await response.json()
 		const visible = limit === Infinity ? posts : posts.slice(0, limit)
 
