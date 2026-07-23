@@ -67,7 +67,7 @@ const posts = files
 
 	return metadata
 })
-fs.writeFileSync(DIST_BLOG_DIR + "/posts.json", JSON.stringify(posts))
+fs.writeFileSync(DIST_BLOG_DIR + "/posts.json", JSON.stringify(posts.reverse()))
 
 const rssItems = posts
 		.map(post => `

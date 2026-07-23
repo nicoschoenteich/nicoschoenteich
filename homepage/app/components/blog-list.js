@@ -4,9 +4,7 @@ class NicoschoenteichBlogList extends HTMLElement {
 
 		const response = await fetch('/blog/posts.json')
 		const posts = await response.json()
-
-		const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date))
-		const visible = limit === Infinity ? sorted : sorted.slice(0, limit)
+		const visible = limit === Infinity ? posts : posts.slice(0, limit)
 
 		this.innerHTML = `
 			<ul>
