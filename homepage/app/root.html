@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/public/img/star-small.svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{{ title }}}</title>
+	<meta name="description" content="{{{ descriptionShort }}}" />
+	<meta name="robots" content="index, follow" />
+	<meta property="og:description" content="{{{ descriptionShort }}}" />
+	<meta property="og:image" content="https://nicoschoenteich.de/public/img/nico-meta-tags.png" />
+	{{{ metaTags }}}
+	<link rel="alternate" type="application/rss+xml" title="Nico Schoenteich" href="/blog/feed.xml">
+	<link rel="stylesheet" href="/style.css">
+	<script src="/public/webcomponents/header.js"></script>
+	<script src="/public/webcomponents/footer.js"></script>
+</head>
+<body>
+	<nicoschoenteich-header></nicoschoenteich-header>
+  <div class="letter-box-outer">
+    <div class="letter-box-inner">
+			{{{ slot }}}
+    </div>
+  </div>
+	<nicoschoenteich-footer></nicoschoenteich-footer>
+</body>
+</html>

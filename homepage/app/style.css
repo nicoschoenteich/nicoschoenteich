@@ -52,14 +52,19 @@ body {
   font-size: 1.1rem;
 }
 
-.bold {
-  font-weight: bold;
-}
-
 .highlight {
   background: linear-gradient(to top, var(--sap-indigo2) 0.55rem, transparent 0.45rem);
   align-self: flex-start;
 	line-height: 1;
+}
+
+a.highlight {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 article {
@@ -83,7 +88,7 @@ article .topic {
 	height: 8rem;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
 	article .topic {
 		height: 5rem;
 	}
