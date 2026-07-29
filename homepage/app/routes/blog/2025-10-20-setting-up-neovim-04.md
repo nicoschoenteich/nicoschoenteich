@@ -1,5 +1,5 @@
 ---
-topic: "star"
+topic: "anvil"
 description: Building on top of the previous three blog posts, this blog post will focus on creating a custom theme for Neovim, inspired by the SAP TechEd 2025 branding."
 ---
 

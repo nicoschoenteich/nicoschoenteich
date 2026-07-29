@@ -98,20 +98,20 @@ article img {
 	max-width: 100%;
 }
 
-article pre {
+pre {
 	background-color: white;
 	padding: 1rem;
 	border-radius: 1rem;
 	overflow-x: auto;
 }
 
-article p code {
+p code {
 	border-radius: 0.4rem;
 	padding: 0.2rem 0.4rem;
 	background-color: white;
 }
 
-article code {
+code {
 	font-size: 0.85rem;
 	overflow-wrap: break-word;
 }
