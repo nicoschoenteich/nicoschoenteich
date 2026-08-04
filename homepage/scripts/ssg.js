@@ -42,7 +42,7 @@ export default class StaticSiteGenerator {
 	}
 
 	generateStaticSitesFromMarkdown() {
-		const converter = new showdown.Converter();
+		const converter = new showdown.Converter({ tables: true});
 		for (const file of this.mdFiles) {
 			const { metadata, markdown } = this.extractInfoFromMarkdownFile(file);
 			const postHtml = converter.makeHtml(markdown);
@@ -135,13 +135,13 @@ export default class StaticSiteGenerator {
 
 	extractInfoFromMarkdownFile(file) {
 		const content = fs.readFileSync("./dist/routes/blog/" + file, "utf8");
-
 		const splitContent = content.split("---");
 		const frontmatter = splitContent[1];
 		const metadata = yaml.parse(frontmatter);
 		metadata.title = splitContent[2].split("# ")[1].split("\n")[0];
 		metadata.date = file.slice(0, 10);
 		metadata.slug = file.slice(0, -3);
-		return { metadata, markdown: splitContent[2] };
+		const markdown = splitContent.slice(2).join("---");
+		return { metadata, markdown };
 	}
 }
