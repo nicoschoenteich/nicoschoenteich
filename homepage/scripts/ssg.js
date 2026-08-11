@@ -59,6 +59,14 @@ export default class StaticSiteGenerator {
 						<img class="topic" src="/public/img/${metadata.topic}.svg" />
 					</div>
 					${postHtml}
+					<script src="https://utteranc.es/client.js"
+						repo="nicoschoenteich/nicoschoenteich"
+						issue-term="url"
+						label="blog-post-comments"
+						theme="github-light"
+						crossorigin="anonymous"
+						async>
+					</script>
 				</article>`;
 			const postMetaTags = `
 				<meta property="og:title" content="${metadata.title}" />
