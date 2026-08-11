@@ -18,30 +18,30 @@ class NicoschoenteichFooter extends HTMLElement {
 
       <style>
         nicoschoenteich-footer {
-          display: flex;
-					flex-direction: column;
-					align-items: center;
-					gap: 2rem;
-					padding-top: 2.1rem;
-					padding-bottom: 1rem;
-          border-top: 1px solid var(--sap-blue10);
-					margin-top: 5rem;
-        }
-				nicoschoenteich-footer .icons {
-					display: flex;
-					gap: 1.5rem;
-				}
-				nicoschoenteich-footer a {
-					text-decoration: none;
-				}
-				nicoschoenteich-footer img {
-					height: 4rem;
-				}
-				@media (max-width: 600px) {
-					nicoschoenteich-footer img {
-						height: 2.5rem;
-					}
-				}
+        	display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2rem;
+			padding-top: 2.1rem;
+			padding-bottom: 1rem;
+			border-top: 1px solid var(--sap-blue10);
+			margin-top: 5rem;
+		}
+		nicoschoenteich-footer .icons {
+			display: flex;
+			gap: 1.5rem;
+		}
+		nicoschoenteich-footer a {
+			text-decoration: none;
+		}
+		nicoschoenteich-footer img {
+			height: 4rem;
+		}
+		@media (max-width: 600px) {
+			nicoschoenteich-footer img {
+				height: 2.5rem;
+			}
+		}
       </style>
     `;
 	}
