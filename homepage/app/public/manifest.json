@@ -1,13 +1,13 @@
 {
 	"name": "Nico Schoenteich",
-	"short_name": "Nico",
+	"short_name": "Schoenteich",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#ebf8ff",
 	"theme_color": "#ebf8ff",
 	"icons": [
 		{
-			"src": "/public/apple-touch-icon.png",
+			"src": "/public/img/apple-touch-icon.png",
 			"sizes": "180x180",
 			"type": "image/png"
 		}
